@@ -46,29 +46,42 @@ if Shared.RadioBox and Shared.RadioBox.state then
     end)
 end
 
-RegisterNetEvent('mm_radio:server:openRadioBox', function()
+RegisterNetEvent('mm_radio:server:openRadioBox', function(slotId)
     local src = source
     if not Shared.RadioBox or not Shared.RadioBox.state then return end
     local boxItem = Shared.RadioBox.item or 'radio_box'
     local rewardItem = Shared.RadioBox.reward or 'radio'
 
-    local count = exports.ox_inventory:GetItemCount(src, boxItem)
-    if not count or count < 1 then return end
-
-    if not exports.ox_inventory:CanAddItem(src, rewardItem, 1) then
-        return TriggerClientEvent('ox_lib:notify', src, {
-            title = 'Radio Box',
-            description = locale('inventory_full'),
-            type = 'error'
-        })
+    local removed = false
+    if slotId and type(slotId) == 'number' then
+        removed = exports.ox_inventory:RemoveItem(src, boxItem, 1, nil, slotId)
+    end
+    if not removed then
+        removed = exports.ox_inventory:RemoveItem(src, boxItem, 1)
     end
 
-    if exports.ox_inventory:RemoveItem(src, boxItem, 1) then
-        exports.ox_inventory:AddItem(src, rewardItem, 1)
+    if removed then
+        local success, response = exports.ox_inventory:AddItem(src, rewardItem, 1)
+        if success then
+            TriggerClientEvent('ox_lib:notify', src, {
+                title = 'Radio Box',
+                description = locale('opened_radio_box') or 'You opened the radio box and received a radio!',
+                type = 'success'
+            })
+        else
+            -- If adding reward failed, return the box
+            exports.ox_inventory:AddItem(src, boxItem, 1)
+            TriggerClientEvent('ox_lib:notify', src, {
+                title = 'Radio Box',
+                description = response or locale('inventory_full') or 'Inventory is full!',
+                type = 'error'
+            })
+        end
+    else
         TriggerClientEvent('ox_lib:notify', src, {
             title = 'Radio Box',
-            description = locale('opened_radio_box'),
-            type = 'success'
+            description = locale('open_box_cancelled') or 'Item not found!',
+            type = 'error'
         })
     end
 end)

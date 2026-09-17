@@ -497,13 +497,13 @@ exports('LeaveRadio', LeaveRadio)
 
 function OpenRadioBox(data, slot)
     if Radio.PlayerDead or IsPedFatallyInjured(cache.ped) then return end
+    local slotId = slot or (type(data) == 'table' and data.slot) or (type(data) == 'number' and data) or nil
     if lib.progressBar({
         duration = (Shared.RadioBox and Shared.RadioBox.openTime) or 2500,
-        label = locale('opening_radio_box'),
+        label = locale('opening_radio_box') or 'Opening Radio Box...',
         useWhileDead = false,
         canCancel = true,
         disable = {
-            car = true,
             move = true,
             combat = true
         },
@@ -512,11 +512,11 @@ function OpenRadioBox(data, slot)
             clip = 'a_uncuff'
         }
     }) then
-        TriggerServerEvent('mm_radio:server:openRadioBox')
+        TriggerServerEvent('mm_radio:server:openRadioBox', slotId)
     else
         lib.notify({
             title = 'Radio Box',
-            description = locale('open_box_cancelled'),
+            description = locale('open_box_cancelled') or 'Cancelled opening radio box',
             type = 'error'
         })
     end
