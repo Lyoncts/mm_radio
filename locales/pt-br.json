@@ -9,6 +9,7 @@
   "toggle_defean": "Rádio Silenciado",
   "toggle_undeafen": "Rádio Ativado",
   "failed_mute": "Falha ao silenciar o jogador",
+  "radio_water_damage": "Seu rádio molhou e foi destruído!",
 
   "ui": {
     "header": "NO RÁDIO",

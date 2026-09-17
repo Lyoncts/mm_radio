@@ -9,6 +9,7 @@
     "toggle_defean": "ラジオをデフ（消音）にしました",
     "toggle_undeafen": "ラジオのデフを解除しました",
     "failed_mute": "プレイヤーのミュートに失敗しました",
+    "radio_water_damage": "無線機が水没して壊れました！",
     "ui": {
         "header": "ラジオ接続中",
         "frequency": "周波数",

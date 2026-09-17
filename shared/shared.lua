@@ -4,6 +4,9 @@ Shared.MaxFrequency = 500.00 -- Max Limit of Radio Channel
 ---@type boolean
 Shared.LeaveOnDeath = true -- Should the player leave the radio channel when they die
 
+---@type boolean
+Shared.BreakInWater = true -- Should the radio break and be removed from inventory when the player enters water
+
 ---@class Jammer
 ---@field state boolean
 ---@field model string
@@ -44,32 +47,20 @@ Shared.Battery = {
 
 ---@type [string]: string
 Shared.RadioNames = {
-    ["1"] = "MRPD CH#1", -- channel value 1
-    ["1.%"] = "MRPD CH#1", -- channel value 1.%%%% string formatter
-    ["2"] = "MRPD CH#2",
-    ["2.%"] = "MRPD CH#2",
-    ["3"] = "MRPD CH#3",
-    ["3.%"] = "MRPD CH#3",
-    ["4"] = "MRPD CH#4",
-    ["4.%"] = "MRPD CH#4",
-    ["5"] = "MRPD CH#5",
-    ["5.%"] = "MRPD CH#5",
-    ["6"] = "MRPD CH#6",
-    ["6.%"] = "MRPD CH#6",
-    ["7"] = "MRPD CH#7",
-    ["7.%"] = "MRPD CH#7",
-    ["8"] = "MRPD CH#8",
-    ["8.%"] = "MRPD CH#8",
-    ["9"] = "MRPD CH#9",
-    ["9.%"] = "MRPD CH#9",
-    ["10"] = "MRPD CH#10",
-    ["10.%"] = "MRPD CH#10",
-    ["420"] = "Ballas CH#1",
-    ["420.%"] = "Ballas CH#1",
-    ["421"] = "LostMC CH#1",
-    ["421.%"] = "LostMC CH#1",
-    ["422"] = "Vagos CH#1",
-    ["422.%"] = "Vagos CH#1",
+    ["1"] = "EGPD CH#1", -- channel value 1
+    ["1.%"] = "EGPD CH#1", -- channel value 1.%%%% string formatter
+    ["2"] = "EGMS CH#1", -- channel value 2
+    ["2.%"] = "EGMS CH#1", -- channel value 2.%%%% string formatter
+    ["3"] = "EGT CH#1", -- channel value 3
+    ["3.%"] = "EGT CH#1", -- channel value 3.%%%% string formatter
+    ["4"] = "EGWS CH#1", -- channel value 4
+    ["4.%"] = "EGWS CH#1", -- channel value 4.%%%% string formatter
+    ["5"] = "EGTOWING CH#1", -- channel value 5
+    ["5.%"] = "EGTOWING CH#1", -- channel value 5.%%%% string formatter
+    ["6"] = "EGMART CH#1", -- channel value 6
+    ["6.%"] = "EGMART CH#1", -- channel value 6.%%%% string formatter
+    ["7"] = "EGBREW CH#1", -- channel value 7
+    ["7.%"] = "EGBREW CH#1", -- channel value 7.%%%% string formatter
 }
 
 Shared.RestrictedChannels = {
@@ -83,47 +74,23 @@ Shared.RestrictedChannels = {
     },
     [3] = { -- channel id
         type = 'job', -- job/gang
-        name = {"police", "ambulance"}
+        name = {"tuning"}
     },
     [4] = { -- channel id
         type = 'job', -- job/gang
-        name = {"police", "ambulance"}
+        name = {"workshop"}
     },
     [5] = { -- channel id
         type = 'job', -- job/gang
-        name = {"police", "ambulance"}
+        name = {"towing"}
     },
     [6] = { -- channel id
         type = 'job', -- job/gang
-        name = {"police", "ambulance"}
+        name = {"mart"}
     },
     [7] = { -- channel id
         type = 'job', -- job/gang
-        name = {"police", "ambulance"}
-    },
-    [8] = { -- channel id
-        type = 'job', -- job/gang
-        name = {"police", "ambulance"}
-    },
-    [9] = { -- channel id
-        type = 'job', -- job/gang
-        name = {"police", "ambulance"}
-    },
-    [10] = { -- channel id
-        type = 'job', -- job/gang
-        name = {"police", "ambulance"}
-    },
-    [420] = { -- channel id
-        type = 'gang', -- job/gang
-        name = {"ballas"}
-    },
-    [421] = { -- channel id
-        type = 'gang', -- job/gang
-        name = {"lostmc"}
-    },
-    [422] = {
-        type = 'gang', -- job/gang
-        name = {"vagos"}
+        name = {"burgershot"}
     },
 }
 

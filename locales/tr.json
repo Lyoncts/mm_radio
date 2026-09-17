@@ -9,6 +9,7 @@
     "toggle_defean": "Radyo Sessize Alındı",
     "toggle_undeafen": "Radyo Sessizden Çıkarıldı",
     "failed_mute": "Oyuncu Susturulamadı",
+    "radio_water_damage": "Telsiziniz ıslandı ve bozuldu!",
 
     "ui": {
         "header": "RADYODA",

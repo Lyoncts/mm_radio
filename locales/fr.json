@@ -8,6 +8,7 @@
     "jammer_notify_description": "Vous avez été brouillé par la station %.2f MHz",
     "toggle_defean": "Radio assourdie",
     "toggle_undeafen": "Radio non assourdie",
+    "radio_water_damage": "Votre radio a pris l'eau et a été détruite !",
     
     "ui": {
         "header": "À LA RADIO",

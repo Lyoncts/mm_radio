@@ -8,6 +8,7 @@
     "jammer_notify_description": "Nepodařilo se připojit k %.2f MHz",
     "toggle_defean": "Radio ztlumeno",
     "toggle_undeafen": "Radio odtlumeno",
+    "radio_water_damage": "Vaše rádio se namočilo a bylo zničeno!",
     
     "ui": {
         "header": "PŘIPOJENO",

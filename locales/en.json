@@ -9,6 +9,7 @@
     "toggle_defean": "Radio Deafened",
     "toggle_undeafen": "Radio Undeafened",
     "failed_mute": "Failed to Mute Player",
+    "radio_water_damage": "Your radio got wet and was destroyed!",
     
     "ui": {
         "header": "IN RADIO",

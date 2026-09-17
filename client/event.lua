@@ -20,6 +20,10 @@ end)
 
 RegisterNetEvent('mm_radio:client:use', function(slot)
     if Radio.PlayerDead or IsPedFatallyInjured(cache.ped) then return end
+    if Shared.BreakInWater and (IsEntityInWater(cache.ped) or IsPedSwimming(cache.ped) or IsPedSwimmingUnderWater(cache.ped)) then
+        Radio:BreakInWater()
+        return
+    end
     Radio.usingRadio = true
     SetNuiFocus(true, true)
     Radio:toggleRadioAnimation(true)

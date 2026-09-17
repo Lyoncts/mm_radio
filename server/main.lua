@@ -29,6 +29,17 @@ RegisterNetEvent('mm_radio:server:rechargeBattery', function()
     end
 end)
 
+RegisterNetEvent('mm_radio:server:breakRadioInWater', function()
+    local src = source
+    for i = 1, #Shared.RadioItem do
+        local itemName = Shared.RadioItem[i]
+        local count = exports.ox_inventory:GetItemCount(src, itemName)
+        if count and count > 0 then
+            exports.ox_inventory:RemoveItem(src, itemName, count)
+        end
+    end
+end)
+
 RegisterNetEvent('mm_radio:server:spawnobject', function(data)
     local src = source
 	CreateThread(function()

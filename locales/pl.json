@@ -9,6 +9,7 @@
   "toggle_defean": "Wyciszono radio",
   "toggle_undeafen": "Odciszono radio",
   "failed_mute": "Nie udało się wyciszyć gracza",
+  "radio_water_damage": "Twoje radio zamokło i uległo zniszczeniu!",
   "ui": {
     "header": "RADIO",
     "frequency": "Częstotliwość",

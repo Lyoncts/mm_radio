@@ -134,6 +134,33 @@ function Radio:doRadioCheck(_)
     if not self.hasRadio and self.onRadio then
         Radio:leaveradio()
     end
+    if self.hasRadio and Shared.BreakInWater then
+        local ped = cache.ped
+        if IsEntityInWater(ped) or IsPedSwimming(ped) or IsPedSwimmingUnderWater(ped) then
+            self:BreakInWater()
+        end
+    end
+end
+
+function Radio:BreakInWater()
+    if not Shared.BreakInWater then return end
+    if not self.hasRadio then return end
+    local ped = cache.ped
+    if IsEntityInWater(ped) or IsPedSwimming(ped) or IsPedSwimmingUnderWater(ped) then
+        if self.usingRadio then
+            TriggerEvent('mm_radio:client:remove')
+        end
+        if self.onRadio then
+            self:leaveradio()
+        end
+        self.hasRadio = false
+        TriggerServerEvent('mm_radio:server:breakRadioInWater')
+        lib.notify({
+            title = 'Radio',
+            description = locale('radio_water_damage'),
+            type = 'error'
+        })
+    end
 end
 
 function Radio:leaveradio()
@@ -506,6 +533,24 @@ if Shared.Battery.state then
         while true do
             TriggerServerEvent('mm_radio:server:consumeBattery', Radio.batteryData)
             Wait(Shared.Battery.depletionTime * 60000)
+        end
+    end)
+end
+
+if Shared.BreakInWater then
+    CreateThread(function()
+        while true do
+            if Radio.playerLoaded and Radio.hasRadio then
+                local ped = cache.ped
+                if IsEntityInWater(ped) or IsPedSwimming(ped) or IsPedSwimmingUnderWater(ped) then
+                    Radio:BreakInWater()
+                    Wait(3000)
+                else
+                    Wait(1000)
+                end
+            else
+                Wait(2000)
+            end
         end
     end)
 end
