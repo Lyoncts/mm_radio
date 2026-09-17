@@ -24,11 +24,22 @@ RegisterNetEvent('mm_radio:client:use', function(slot)
         Radio:BreakInWater()
         return
     end
+    if not Radio.identifier or not Radio.userData[Radio.identifier] then
+        Radio:Init()
+    end
+    local battery, radioId = lib.callback.await('mm_radio:server:getradiodata', false, slot)
+    local userdata = (Radio.identifier and Radio.userData[Radio.identifier]) or {
+        favourite = {},
+        name = nil,
+        overlaySizeMultiplier = 50,
+        radioSizeMultiplier = 50,
+        allowMovement = false,
+        playerlist = { show = false, coords = { x = 15.0, y = 40.0 } },
+        radio = { coords = { x = 10, y = 15 } }
+    }
     Radio.usingRadio = true
     SetNuiFocus(true, true)
     Radio:toggleRadioAnimation(true)
-    local battery, radioId = lib.callback.await('mm_radio:server:getradiodata', false, slot)
-    local userdata = Radio.userData[Radio.identifier]
     Radio:SendSvelteMessage("setRadioVisible", {
         radioId = radioId,
         onRadio = Radio.onRadio,

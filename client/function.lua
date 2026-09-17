@@ -69,12 +69,14 @@ end
 
 function Radio:Init(data)
     local player = data or QBX.PlayerData
-    self.identifier = player.cid
-    self.PlayerJob = player.job.name
-    self.PlayerDuty = player.job.onduty
-    self.PlayerGang = player.gang.name
+    if not player or not next(player) then return end
+    self.identifier = player.citizenid or player.cid or tostring(cache.serverId)
+    self.PlayerJob = (player.job and player.job.name) or 'civilian'
+    self.PlayerDuty = (player.job and player.job.onduty) or false
+    self.PlayerGang = (player.gang and player.gang.name) or 'none'
     if not self.userData[self.identifier] then self:SetDefaultData(self.identifier) end
-    self.userData[self.identifier].name = self.userData[self.identifier].name or player.charinfo.firstname .. " " .. player.charinfo.lastname
+    local charName = (player.charinfo and (player.charinfo.firstname .. " " .. player.charinfo.lastname)) or ("Player " .. cache.serverId)
+    self.userData[self.identifier].name = self.userData[self.identifier].name or charName
     local rec = {}
     for k, v in pairs(Shared.RestrictedChannels) do
         if v.type == 'job' and lib.table.contains(v.name, self.PlayerJob) then
