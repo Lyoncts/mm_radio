@@ -9,6 +9,10 @@
     "toggle_defean": "Radio taub",
     "toggle_undeafen": "Radio nicht taub",
     "radio_water_damage": "Dein Funkgerät ist nass geworden und wurde zerstört!",
+    "opening_radio_box": "Funkgeräte-Box wird geöffnet...",
+    "opened_radio_box": "Du hast die Box geöffnet und ein Funkgerät erhalten!",
+    "open_box_cancelled": "Öffnen der Box abgebrochen",
+    "inventory_full": "Inventar ist voll!",
     
     "ui": {
         "header": "IM RADIO",

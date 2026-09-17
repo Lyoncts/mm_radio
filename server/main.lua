@@ -40,6 +40,39 @@ RegisterNetEvent('mm_radio:server:breakRadioInWater', function()
     end
 end)
 
+if Shared.RadioBox and Shared.RadioBox.state then
+    exports.qbx_core:CreateUseableItem(Shared.RadioBox.item, function(source, item)
+        TriggerClientEvent('mm_radio:client:openRadioBox', source, item)
+    end)
+end
+
+RegisterNetEvent('mm_radio:server:openRadioBox', function()
+    local src = source
+    if not Shared.RadioBox or not Shared.RadioBox.state then return end
+    local boxItem = Shared.RadioBox.item or 'radio_box'
+    local rewardItem = Shared.RadioBox.reward or 'radio'
+
+    local count = exports.ox_inventory:GetItemCount(src, boxItem)
+    if not count or count < 1 then return end
+
+    if not exports.ox_inventory:CanAddItem(src, rewardItem, 1) then
+        return TriggerClientEvent('ox_lib:notify', src, {
+            title = 'Radio Box',
+            description = locale('inventory_full'),
+            type = 'error'
+        })
+    end
+
+    if exports.ox_inventory:RemoveItem(src, boxItem, 1) then
+        exports.ox_inventory:AddItem(src, rewardItem, 1)
+        TriggerClientEvent('ox_lib:notify', src, {
+            title = 'Radio Box',
+            description = locale('opened_radio_box'),
+            type = 'success'
+        })
+    end
+end)
+
 RegisterNetEvent('mm_radio:server:spawnobject', function(data)
     local src = source
 	CreateThread(function()

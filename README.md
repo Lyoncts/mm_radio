@@ -55,6 +55,57 @@ pnpm run build
 # EXPORTS:
 1. `exports["mm_radio"]:JoinRadio(channel: number)`
 2. `exports["mm_radio"]:LeaveRadio()`
+3. `exports["mm_radio"]:openRadioBox()`
+4. `exports["mm_radio"]:useRadio()`
+
+# OX_INVENTORY ITEMS:
+Add the following to your `ox_inventory/data/items.lua`:
+
+```lua
+['radio'] = {
+    label = 'Radio',
+    weight = 500,
+    stack = false,
+    close = true,
+    description = 'A handheld radio communication device',
+    client = {
+        export = 'mm_radio.useRadio'
+    }
+},
+
+['radio_box'] = {
+    label = 'Radio Box',
+    weight = 600,
+    stack = true,
+    close = true,
+    description = 'A boxed package containing a radio device',
+    client = {
+        export = 'mm_radio.openRadioBox'
+    }
+},
+
+['radiocell'] = {
+    label = 'Radio Battery Cell',
+    weight = 100,
+    stack = true,
+    close = true,
+    description = 'A battery cell used to recharge radio batteries',
+    client = {
+        event = 'mm_radio:client:recharge'
+    }
+},
+
+['jammer'] = {
+    label = 'Radio Jammer',
+    weight = 2500,
+    stack = false,
+    close = true,
+    description = 'A deployable frequency jammer to disrupt radio signals',
+    client = {
+        event = 'mm_radio:client:usejammer'
+    }
+},
+```
 
 # GUIDE:
 https://master-mind-store.gitbook.io/dashboard/free-release/radio

@@ -9,6 +9,10 @@
     "toggle_defean": "Radio sordo",
     "toggle_undeafen": "Radio no sordo",
     "radio_water_damage": "¡Tu radio se mojó y quedó destruida!",
+    "opening_radio_box": "Abriendo caja de radio...",
+    "opened_radio_box": "¡Abriste la caja de radio y recibiste una radio!",
+    "open_box_cancelled": "Apertura de la caja de radio cancelada",
+    "inventory_full": "¡El inventario está lleno!",
     
     "ui": {
         "header": "EN RADIO",

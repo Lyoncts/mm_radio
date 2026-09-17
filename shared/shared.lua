@@ -33,6 +33,20 @@ Shared.RadioItem = {
     'radio'
 }
 
+---@class RadioBox
+---@field state boolean
+---@field item string
+---@field reward string
+---@field openTime number
+
+---@type RadioBox
+Shared.RadioBox = {
+    state = true, -- enable opening radio box to get radio
+    item = 'radio_box', -- item name to use
+    reward = 'radio', -- item name given upon opening
+    openTime = 2500 -- time in ms to open the box
+}
+
 ---@class Battery
 ---@field state boolean
 ---@field consume number

@@ -10,6 +10,10 @@
   "toggle_undeafen": "Odciszono radio",
   "failed_mute": "Nie udało się wyciszyć gracza",
   "radio_water_damage": "Twoje radio zamokło i uległo zniszczeniu!",
+  "opening_radio_box": "Otwieranie pudełka z radiem...",
+  "opened_radio_box": "Otworzyłeś pudełko i otrzymałeś radio!",
+  "open_box_cancelled": "Anulowano otwieranie pudełka z radiem",
+  "inventory_full": "Ekwipunek jest pełny!",
   "ui": {
     "header": "RADIO",
     "frequency": "Częstotliwość",

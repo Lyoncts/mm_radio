@@ -493,6 +493,43 @@ end
 
 exports('LeaveRadio', LeaveRadio)
 
+function OpenRadioBox(data, slot)
+    if Radio.PlayerDead or IsPedFatallyInjured(cache.ped) then return end
+    if lib.progressBar({
+        duration = (Shared.RadioBox and Shared.RadioBox.openTime) or 2500,
+        label = locale('opening_radio_box'),
+        useWhileDead = false,
+        canCancel = true,
+        disable = {
+            car = true,
+            move = true,
+            combat = true
+        },
+        anim = {
+            dict = 'mp_arresting',
+            clip = 'a_uncuff'
+        }
+    }) then
+        TriggerServerEvent('mm_radio:server:openRadioBox')
+    else
+        lib.notify({
+            title = 'Radio Box',
+            description = locale('open_box_cancelled'),
+            type = 'error'
+        })
+    end
+end
+
+exports('openRadioBox', OpenRadioBox)
+exports('useRadioBox', OpenRadioBox)
+
+local function UseRadio(data, slot)
+    TriggerEvent('mm_radio:client:use', slot)
+end
+
+exports('useRadio', UseRadio)
+exports('openRadio', UseRadio)
+
 lib.addKeybind({
     name = 'radio',
     description = 'Press = to open Radio',

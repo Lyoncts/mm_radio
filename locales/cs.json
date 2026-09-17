@@ -9,6 +9,10 @@
     "toggle_defean": "Radio ztlumeno",
     "toggle_undeafen": "Radio odtlumeno",
     "radio_water_damage": "Vaše rádio se namočilo a bylo zničeno!",
+    "opening_radio_box": "Otevírání krabice s rádiem...",
+    "opened_radio_box": "Otevřeli jste krabici s rádiem a získali rádio!",
+    "open_box_cancelled": "Otevírání krabice s rádiem zrušeno",
+    "inventory_full": "Inventář je plný!",
     
     "ui": {
         "header": "PŘIPOJENO",

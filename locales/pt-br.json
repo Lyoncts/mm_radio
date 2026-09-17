@@ -10,6 +10,10 @@
   "toggle_undeafen": "Rádio Ativado",
   "failed_mute": "Falha ao silenciar o jogador",
   "radio_water_damage": "Seu rádio molhou e foi destruído!",
+  "opening_radio_box": "Abrindo caixa do rádio...",
+  "opened_radio_box": "Você abriu a caixa e recebeu um rádio!",
+  "open_box_cancelled": "Abertura da caixa cancelada",
+  "inventory_full": "Inventário cheio!",
 
   "ui": {
     "header": "NO RÁDIO",

@@ -9,6 +9,10 @@
     "toggle_defean": "Radio assourdie",
     "toggle_undeafen": "Radio non assourdie",
     "radio_water_damage": "Votre radio a pris l'eau et a été détruite !",
+    "opening_radio_box": "Ouverture de la boîte de radio...",
+    "opened_radio_box": "Vous avez ouvert la boîte et reçu une radio !",
+    "open_box_cancelled": "Ouverture de la boîte annulée",
+    "inventory_full": "L'inventaire est plein !",
     
     "ui": {
         "header": "À LA RADIO",

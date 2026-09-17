@@ -10,6 +10,10 @@
     "toggle_undeafen": "ラジオのデフを解除しました",
     "failed_mute": "プレイヤーのミュートに失敗しました",
     "radio_water_damage": "無線機が水没して壊れました！",
+    "opening_radio_box": "無線機の箱を開けています...",
+    "opened_radio_box": "無線機の箱を開けて無線機を受け取りました！",
+    "open_box_cancelled": "無線機の箱を開けるのをキャンセルしました",
+    "inventory_full": "インベントリがいっぱいです！",
     "ui": {
         "header": "ラジオ接続中",
         "frequency": "周波数",

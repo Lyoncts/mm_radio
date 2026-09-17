@@ -10,6 +10,10 @@
     "toggle_undeafen": "Radio Undeafened",
     "failed_mute": "Failed to Mute Player",
     "radio_water_damage": "Your radio got wet and was destroyed!",
+    "opening_radio_box": "Opening Radio Box...",
+    "opened_radio_box": "You opened the radio box and received a radio!",
+    "open_box_cancelled": "Cancelled opening radio box",
+    "inventory_full": "Inventory is full!",
     
     "ui": {
         "header": "IN RADIO",

@@ -10,6 +10,10 @@
     "toggle_undeafen": "Radyo Sessizden Çıkarıldı",
     "failed_mute": "Oyuncu Susturulamadı",
     "radio_water_damage": "Telsiziniz ıslandı ve bozuldu!",
+    "opening_radio_box": "Telsiz kutusu açılıyor...",
+    "opened_radio_box": "Telsiz kutusunu açtınız ve bir telsiz aldınız!",
+    "open_box_cancelled": "Telsiz kutusu açma iptal edildi",
+    "inventory_full": "Envanter dolu!",
 
     "ui": {
         "header": "RADYODA",
